@@ -4,7 +4,7 @@ const navBar = () => {
   const domString = `
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
     <div class="container-fluid">
-        <a class="navbar-brand title" href="" id="logo">Teach US Tech</a>
+        <a class="navbar-brand title" href="" id="logo">Reynold Anthony Vocabulary</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -12,7 +12,7 @@ const navBar = () => {
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
               <a class="nav-link" href="#" id="create-entry">
-                CREATE ENTRY <span class="sr-only">(current)</span>
+                CREATE CARDS <span class="sr-only">(current)</span>
               </a>
             </li>
             <div class="main-container">

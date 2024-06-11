@@ -18,8 +18,17 @@ const addVocabForm = (obj = {}) => {
         <label for="language">Language / Tech</label>
         <textarea class="form-control" placeholder="Language / Tech" id="language" style="height: 100px">${obj.language_id || ''}</textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Submit Vocab
-      </button>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select class="form-control" id="category" required>
+          <option value="">Select a category</option>
+          <option value="Python">Python</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="CSS">CSS</option>
+          <option value="HTML">HTML</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Vocab</button>
     </form>`;
 
   renderToDOM('#form-container', domString);

@@ -3,6 +3,14 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
+// Helper function to safely handle Object.values
+const safeObjectValues = (data) => {
+  if (data) {
+    return Object.values(data);
+  }
+  return [];
+};
+
 // TODO: GET Vocab
 const getVocab = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabWords.json`, {
@@ -12,7 +20,7 @@ const getVocab = () => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => resolve(safeObjectValues(data)))
     .catch(reject);
 });
 
@@ -25,7 +33,7 @@ const getPython = () => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => resolve(safeObjectValues(data)))
     .catch(reject);
 });
 
@@ -38,7 +46,7 @@ const getJavascript = () => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => resolve(safeObjectValues(data)))
     .catch(reject);
 });
 
@@ -51,7 +59,7 @@ const getCSS = () => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => resolve(safeObjectValues(data)))
     .catch(reject);
 });
 
@@ -64,11 +72,11 @@ const getHTML = () => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => resolve(safeObjectValues(data)))
     .catch(reject);
 });
 
-// FIXME: CREATE AUTHOR
+// FIXME: CREATE VOCAB
 const createVocab = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabWords.json`, {
     method: 'POST',
@@ -95,7 +103,7 @@ const getSingleVocab = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: DELETE AUTHOR
+// FIXME: DELETE VOCAB
 const deleteSingleVocab = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabWords/${firebaseKey}.json`, {
     method: 'DELETE',
@@ -108,7 +116,7 @@ const deleteSingleVocab = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: UPDATE AUTHOR
+// FIXME: UPDATE VOCAB
 const updateVocab = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabWords/${payload.firebaseKey}.json`, {
     method: 'PATCH',
